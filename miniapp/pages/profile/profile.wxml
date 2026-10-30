@@ -1,0 +1,106 @@
+<view class="container">
+  <!-- 用户信息头部 -->
+  <view class="user-card" bindtap="openEdit">
+    <block wx:if="{{userInfo}}">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-detail">
+        <text class="nickname">{{userInfo.nickName}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="avatar-placeholder">
+        <text class="avatar-char">豆</text>
+      </view>
+      <view class="user-detail">
+        <text class="nickname">未设置昵称</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 本地数据统计 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <text class="stat-num">{{stats.diagnosisCount}}</text>
+      <text class="stat-label">识别次数</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num">{{stats.daysUsed}}</text>
+      <text class="stat-label">使用天数</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num stat-num-small">{{stats.lastDisease || '—'}}</text>
+      <text class="stat-label">最近识别</text>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToRecords">
+      <view class="menu-left">
+        <view class="menu-badge badge-green">
+          <image class="menu-icon" src="/images/menu-records.png" mode="aspectFit"></image>
+        </view>
+        <text class="menu-text">我的识别记录</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" bindtap="goToAbout">
+      <view class="menu-left">
+        <view class="menu-badge badge-teal">
+          <image class="menu-icon" src="/images/menu-about.png" mode="aspectFit"></image>
+        </view>
+        <text class="menu-text">关于我们</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" bindtap="goToFeedback">
+      <view class="menu-left">
+        <view class="menu-badge badge-amber">
+          <image class="menu-icon" src="/images/menu-feedback.png" mode="aspectFit"></image>
+        </view>
+        <text class="menu-text">意见反馈</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item menu-item-danger" bindtap="clearUser" wx:if="{{userInfo}}">
+      <view class="menu-left">
+        <view class="menu-badge badge-gray">
+          <image class="menu-icon" src="/images/menu-clear.png" mode="aspectFit"></image>
+        </view>
+        <text class="menu-text danger-text">清除本机资料</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <text class="foot-link" bindtap="copyWebUrl">Web 平台：{{webUrl}}</text>
+
+  <!-- 资料编辑弹窗 -->
+  <view class="login-modal" wx:if="{{showEditModal}}" catchtap="closeEdit">
+    <view class="login-content" catchtap="stopPropagation">
+      <text class="login-title">设置本机资料</text>
+
+      <form class="login-form" bindsubmit="completeEdit">
+        <view class="form-item">
+          <text class="form-label">头像</text>
+          <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar" catchtap="stopPropagation">
+            <image class="avatar-preview" src="{{tempAvatarUrl || '/images/tab-profile.png'}}" mode="aspectFill"></image>
+          </button>
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">昵称</text>
+          <input class="nickname-input" type="nickname" name="nickname" placeholder="请输入昵称" value="{{tempNickname}}" bindinput="onNicknameInput" bindblur="onNicknameInput" bindchange="onNicknameInput" catchtap="stopPropagation" />
+        </view>
+
+        <!-- 表单提交兜底：微信昵称快速填入可能不触发 input/blur，但提交时能读到输入框原生值 -->
+        <button class="btn-primary" form-type="submit">保存</button>
+      </form>
+    </view>
+  </view>
+</view>

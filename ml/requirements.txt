@@ -1,0 +1,14 @@
+# 训练环境（GPU: CUDA 12, 4GB）
+torch>=2.2
+torchvision>=0.17
+numpy>=1.26
+pandas
+pillow>=10.0
+matplotlib
+scikit-learn
+seaborn
+tqdm
+onnx>=1.16
+onnxruntime>=1.17
+mobile_sam>=0.1.2       # MobileSAM 严重度分割
+opencv-python-headless  # SAM 前处理用（可选）

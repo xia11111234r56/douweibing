@@ -1,0 +1,41 @@
+<view class="container ai-page">
+  <view class="page-header">
+    <text class="page-title">病虫害咨询</text>
+    <text class="page-desc">常见病害问答</text>
+  </view>
+
+  <!-- 快捷提问 -->
+  <view class="quick-questions" wx:if="{{messages.length === 0}}">
+    <view class="quick-card card">
+      <text class="quick-title">试试这样问</text>
+      <view class="quick-item" wx:for="{{quickQuestions}}" wx:key="index" bindtap="sendQuickQuestion" data-question="{{item}}">
+        <text class="quick-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 对话区 -->
+  <scroll-view class="message-list" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation>
+    <view class="message-item" wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}">
+      <view class="message-row ai-message" wx:if="{{item.role === 'ai'}}">
+        <image class="message-avatar ai-avatar" src="/images/ai-avatar.png" mode="aspectFit"></image>
+        <view class="message-bubble ai-bubble">
+          <text class="message-text">{{item.content}}</text>
+        </view>
+      </view>
+      <view class="message-row user-message" wx:if="{{item.role === 'user'}}">
+        <view class="message-bubble user-bubble">
+          <text class="message-text">{{item.content}}</text>
+        </view>
+        <view class="message-avatar user-avatar">问</view>
+      </view>
+    </view>
+    <view class="typing" wx:if="{{sending}}">正在查询…</view>
+  </scroll-view>
+
+  <!-- 输入区 -->
+  <view class="input-area">
+    <input class="message-input" placeholder="输入症状或病害名称" value="{{inputValue}}" bindinput="onInputChange" bindconfirm="sendMessage" confirm-type="send" />
+    <button class="btn-primary send-btn" bindtap="sendMessage" disabled="{{sending || !inputValue}}">{{sending ? '发送中' : '发送'}}</button>
+  </view>
+</view>

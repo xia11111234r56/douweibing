@@ -1,0 +1,147 @@
+.preview-area {
+  position: relative;
+  width: 100%;
+  height: 460rpx;
+  margin-bottom: 24rpx;
+  background: #eef0f2;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+/* 相机激活时去掉圆角/overflow：原生组件不受 overflow 裁剪且圆角容器易引发重绘闪烁 */
+.preview-area.camera-active {
+  border-radius: 0;
+  overflow: visible;
+}
+
+.camera-component {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+}
+
+.preview-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.placeholder-main {
+  font-size: 36rpx;
+  color: #9aa0a6;
+  font-weight: 500;
+}
+.placeholder-sub {
+  font-size: 24rpx;
+  color: #b0b6bc;
+  margin-top: 12rpx;
+}
+
+/* 田间信息卡 */
+.env-card {
+  padding: 26rpx 30rpx;
+}
+.env-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+.env-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1b3a22;
+}
+.env-tip {
+  font-size: 22rpx;
+  color: #b0b6bc;
+}
+.env-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #f0f2f4;
+}
+.env-row:last-child {
+  border-bottom: none;
+}
+.env-label {
+  font-size: 28rpx;
+  color: #263238;
+}
+.env-value {
+  font-size: 28rpx;
+  color: #2E7D32;
+  font-weight: 500;
+  padding: 8rpx 28rpx;
+  background: #f1f8e9;
+  border-radius: 30rpx;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  margin-top: 8rpx;
+}
+.action-btn {
+  width: 100%;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: none;
+  line-height: 1.4;
+}
+.action-btn::after {
+  border: none;
+}
+
+.btn-camera {
+  background: #2E7D32;
+  color: #ffffff;
+  padding: 24rpx 0;
+}
+.btn-capture {
+  background: #2E7D32;
+  color: #ffffff;
+  padding: 24rpx 0;
+  flex: 1;
+}
+.btn-close {
+  background: #eef0f2;
+  color: #5f6b72;
+  padding: 24rpx 0;
+  flex: 1;
+}
+.btn-album {
+  background: #ffffff;
+  color: #2E7D32;
+  border: 2rpx solid #2E7D32;
+  padding: 22rpx 0;
+}
+.btn-diagnose {
+  background: #1b5e20;
+  color: #ffffff;
+  padding: 24rpx 0;
+}
+.btn-diagnose[disabled] {
+  background: #c8d2cb;
+  color: #ffffff;
+}
+
+.camera-controls {
+  display: flex;
+  gap: 20rpx;
+}

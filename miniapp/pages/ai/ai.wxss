@@ -1,0 +1,150 @@
+.ai-page {
+  padding-bottom: 140rpx;
+}
+
+.quick-questions {
+  margin-bottom: 24rpx;
+}
+.quick-card {
+  padding: 24rpx 28rpx;
+}
+.quick-title {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #1b3a22;
+  margin-bottom: 12rpx;
+}
+.quick-item {
+  padding: 18rpx 20rpx;
+  margin-bottom: 8rpx;
+  border-radius: 12rpx;
+  background: #f7faf5;
+}
+.quick-item:last-child {
+  margin-bottom: 0;
+}
+.quick-text {
+  font-size: 27rpx;
+  color: #2E7D32;
+  line-height: 1.5;
+}
+.empty-hint {
+  font-size: 22rpx;
+  color: #b0b6bc;
+  padding: 8rpx 4rpx 0;
+}
+
+/* 对话区 */
+.message-list {
+  height: calc(100vh - 320rpx);
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+}
+.message-item {
+  margin-bottom: 24rpx;
+}
+.message-row {
+  display: flex;
+  align-items: flex-start;
+}
+.ai-message {
+  flex-direction: row;
+}
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.ai-avatar {
+  background: #E8F5E9;
+  margin-right: 16rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-avatar {
+  background: #eef0f2;
+  color: #5f6b72;
+  margin-left: 16rpx;
+}
+
+.message-bubble {
+  max-width: 72%;
+  padding: 20rpx 26rpx;
+  border-radius: 16rpx;
+}
+.ai-bubble {
+  background: #ffffff;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  border-top-left-radius: 4rpx;
+}
+.user-bubble {
+  background: #2E7D32;
+  border-top-right-radius: 4rpx;
+}
+.message-text {
+  font-size: 28rpx;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.ai-bubble .message-text {
+  color: #263238;
+}
+.user-bubble .message-text {
+  color: #ffffff;
+}
+
+.typing {
+  font-size: 24rpx;
+  color: #b0b6bc;
+  padding: 8rpx 76rpx;
+}
+
+/* 输入区 */
+.input-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+.message-input {
+  flex: 1;
+  background: #f2f4f6;
+  border-radius: 40rpx;
+  padding: 18rpx 30rpx;
+  font-size: 28rpx;
+  margin-right: 16rpx;
+}
+.send-btn {
+  flex-shrink: 0;
+  min-width: 140rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  border-radius: 40rpx;
+  padding: 0;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+.send-btn[disabled] {
+  background: #c8d2cb;
+  color: #ffffff;
+  border: none;
+}

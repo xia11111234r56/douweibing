@@ -1,0 +1,182 @@
+.image-preview {
+  margin-bottom: 24rpx;
+}
+.preview-image {
+  width: 100%;
+  height: 440rpx;
+  border-radius: 20rpx;
+  background: #eef0f2;
+}
+
+.diag-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+.diag-left {
+  flex: 1;
+}
+.disease-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1b3a22;
+  display: block;
+}
+.link-hover {
+  opacity: 0.7;
+}
+.sev-tag {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  padding: 8rpx 26rpx;
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  padding: 14rpx 0;
+}
+.info-label {
+  font-size: 28rpx;
+  color: #8a8f99;
+  width: 160rpx;
+  flex-shrink: 0;
+}
+.info-value {
+  font-size: 28rpx;
+  color: #263238;
+  flex: 1;
+}
+.severity-desc {
+  display: block;
+  background: #f7faf5;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  color: #455a64;
+  line-height: 1.7;
+}
+
+/* 防治方案 */
+.treatment-card {
+  background: #fbfdfa;
+}
+.treatment-item {
+  display: flex;
+  flex-direction: column;
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #eef0f2;
+}
+.treatment-item:last-child {
+  border-bottom: none;
+  padding-bottom: 6rpx;
+}
+.treatment-tag {
+  align-self: flex-start;
+  margin-bottom: 10rpx;
+  font-size: 22rpx;
+}
+.treatment-content {
+  font-size: 26rpx;
+  color: #455a64;
+  line-height: 1.7;
+}
+
+.foot-note {
+  font-size: 22rpx;
+  color: #b0b6bc;
+  text-align: center;
+  padding: 12rpx 20rpx 8rpx;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 24rpx;
+}
+.action-btn {
+  flex: 1;
+  padding: 22rpx 0;
+}
+
+/* 纠错反馈卡片 */
+.feedback-card {
+  margin-top: 24rpx;
+}
+.feedback-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #455a64;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+}
+.feedback-btn {
+  width: 100%;
+  padding: 18rpx 0;
+  font-size: 28rpx;
+}
+.btn-warning {
+  background: #fff3e0;
+  color: #e65100;
+  border: 1rpx solid #ffcc80;
+}
+.btn-warning[disabled] {
+  background: #f5f5f5;
+  color: #bbbbbb;
+  border-color: #eeeeee;
+}
+.btn-warning:active {
+  background: #ffe0b2;
+}
+.fb-hint {
+  display: block;
+  font-size: 24rpx;
+  color: #8a8f99;
+  margin-bottom: 16rpx;
+}
+.picker-view {
+  margin-top: 20rpx;
+  padding: 22rpx;
+  border: 1rpx solid #e0e4e8;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  color: #263238;
+  background: #ffffff;
+}
+.picker-empty {
+  color: #8a8f99;
+}
+.sev-label {
+  display: block;
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: #455a64;
+}
+.sev-pills {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 14rpx;
+}
+.sev-pill {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  color: #455a64;
+  background: #f5f7f9;
+  border: 1rpx solid #e0e4e8;
+}
+.sev-pill-active {
+  color: #e65100;
+  background: #fff3e0;
+  border-color: #ffcc80;
+}
+.feedback-submit {
+  margin-top: 20rpx;
+}
+.feedback-submitted {
+  font-size: 26rpx;
+  color: #2E7D32;
+  padding: 12rpx 0;
+}

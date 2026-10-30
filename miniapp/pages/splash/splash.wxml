@@ -1,0 +1,16 @@
+<view class="splash">
+  <!-- 头像 + 旋转加载圈 -->
+  <view class="center">
+    <view class="logo-wrap">
+      <view class="logo-ring"></view>
+      <view class="logo-avatar">
+        <text class="logo-char">豆</text>
+      </view>
+    </view>
+    <text class="app-name">豆卫兵</text>
+    <text class="app-slogan">拍照识病 · 分级防治</text>
+  </view>
+
+  <!-- 底部温馨提示 -->
+  <view class="splash-note">识别结果仅供参考，请结合田间实际情况与当地农技人员意见。</view>
+</view>

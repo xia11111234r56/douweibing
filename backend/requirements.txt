@@ -1,0 +1,18 @@
+fastapi>=0.111
+uvicorn[standard]>=0.30
+sqlalchemy>=2.0
+pymysql>=1.1
+pydantic>=2.7
+python-dotenv
+pillow>=10.0
+onnxruntime>=1.17
+numpy>=1.26
+python-multipart
+httpx
+pytest
+bcrypt>=4.0
+pyjwt>=2.8
+# 图引擎抽象层：SQL 后端（三元组表 + 内存图算法）
+networkx>=3.1
+# Neo4j 后端（真图数据库演示/验证；生产不装也可，缺失自动回落 SQL）
+neo4j>=5.0

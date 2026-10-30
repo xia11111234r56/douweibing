@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">病害百科</text>
+    <text class="page-desc">绿豆 10 类常见病害，可搜索、按类型筛选</text>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <text class="search-icon">⌕</text>
+    <input class="search-input" placeholder="搜病名或症状，如“炭疽”“黄晕”" value="{{keyword}}" bindinput="onSearch" confirm-type="search" />
+    <text class="search-clear" wx:if="{{keyword}}" bindtap="clearSearch">×</text>
+  </view>
+
+  <!-- 分类 Tab -->
+  <view class="tab-row">
+    <view class="tab {{currentTab === index ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index" bindtap="switchTab" data-index="{{index}}">{{item}}</view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="load-state" wx:if="{{loading}}">正在加载病害数据…</view>
+
+  <!-- 加载失败 -->
+  <view class="load-state error" wx:elif="{{loadError}}">
+    <text class="load-error-text">{{loadError}}</text>
+    <button class="btn-secondary retry-btn" bindtap="retry">重新加载</button>
+  </view>
+
+  <!-- 宫格列表 -->
+  <view class="grid" wx:elif="{{filtered.length > 0}}">
+    <view class="grid-item" wx:for="{{filtered}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <image class="grid-image" src="{{item.image}}" mode="aspectFill" wx:if="{{item.image}}"></image>
+      <view class="grid-image placeholder" wx:else>{{item.char}}</view>
+      <text class="grid-name">{{item.name}}</text>
+      <view class="tag tag-light grid-type">{{item.disease_type}}</view>
+    </view>
+  </view>
+
+  <!-- 空态 -->
+  <view class="empty-state" wx:else>
+    <text class="empty-title">没有匹配的病害</text>
+    <text class="empty-desc">换个关键词试试，或切换分类</text>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/index/index",
+    "pages/camera/camera",
+    "pages/result/result",
+    "pages/ai/ai",
+    "pages/profile/profile",
+    "pages/profile/records",
+    "pages/profile/about",
+    "pages/profile/feedback",
+    "pages/knowledge/disease",
+    "pages/knowledge/disease-detail",
+    "pages/knowledge/planting",
+    "pages/knowledge/overview"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "豆卫兵",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f6f7"
+  },
+  "tabBar": {
+    "color": "#8a8f99",
+    "selectedColor": "#2E7D32",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/ai/ai",
+        "text": "咨询",
+        "iconPath": "images/tab-ai.png",
+        "selectedIconPath": "images/tab-ai-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

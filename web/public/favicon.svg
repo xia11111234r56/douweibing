@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#2e7d32"/>
+  <path d="M14 30c4-10 22-10 36-4-6 12-24 14-36 4z" fill="#66bb6a"/>
+  <path d="M14 30c6 6 16 8 26 6" stroke="#2e7d32" stroke-width="2" fill="none"/>
+  <text x="32" y="49" font-size="32" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-weight="700" fill="#fff" text-anchor="middle">豆</text>
+</svg>

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">我的识别记录</text>
+    <text class="page-desc">本机保存的最近 100 次识别结果</text>
+  </view>
+
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="card record-card" wx:for="{{records}}" wx:key="id" bindtap="viewRecord" data-id="{{item.id}}">
+      <image class="record-image" src="{{item.image}}" mode="aspectFill" wx:if="{{item.image}}"></image>
+      <view class="record-image placeholder-block" wx:else>
+        <text class="placeholder-char">叶</text>
+      </view>
+      <view class="record-info">
+        <text class="record-disease">{{item.diseaseName}}</text>
+        <view class="record-meta">
+          <view class="tag {{item.severityClass}}">{{item.severity}}</view>
+          <text class="record-time">{{item.time}}</text>
+        </view>
+        <view class="record-fb" wx:if="{{item.hasFed || item.canCorrect}}">
+          <text class="fb-done" wx:if="{{item.hasFed}}">已纠错 ✓</text>
+          <view class="fb-btn" wx:else catchtap="goCorrect" data-id="{{item.id}}">纠错</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <text class="empty-title">还没有识别记录</text>
+    <text class="empty-desc">拍一张叶片照片试试</text>
+    <button class="btn-primary empty-btn" bindtap="goToDiagnose">去识别</button>
+  </view>
+</view>

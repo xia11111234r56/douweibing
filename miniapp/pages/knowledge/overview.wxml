@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">综合科普</text>
+    <text class="page-desc">绿豆生长周期、常见病害速查与防治思路</text>
+  </view>
+
+  <!-- 吸顶导航 -->
+  <view class="nav-wrap">
+    <view class="nav">
+      <view class="nav-item {{activeNav === index ? 'active' : ''}}" wx:for="{{navs}}" wx:key="index" bindtap="scrollToNav" data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 生长周期 -->
+  <view class="card section-card anchor-section" id="section-0">
+    <view class="section-head">
+      <text class="section-title">生长周期</text>
+    </view>
+    <view class="timeline">
+      <view class="tl-item" wx:for="{{growth}}" wx:key="index">
+        <view class="tl-stage">{{item.stage}}</view>
+        <view class="tl-days">{{item.days}}</view>
+        <view class="tl-points">
+          <text class="tl-point" wx:for="{{item.points}}" wx:for-item="p" wx:key="*this">{{p}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 认识绿豆 -->
+  <view class="card section-card anchor-section" id="section-1">
+    <view class="section-head">
+      <text class="section-title">认识绿豆</text>
+    </view>
+    <text class="section-content" wx:for="{{intro.paragraphs}}" wx:key="index">{{item}}</text>
+  </view>
+
+  <!-- 综合防治 -->
+  <view class="card section-card anchor-section" id="section-2">
+    <view class="section-head">
+      <text class="section-title">综合防治思路</text>
+    </view>
+    <view class="principle-item" wx:for="{{principles}}" wx:key="index">
+      <text class="principle-title">{{item.title}}</text>
+      <text class="principle-content">{{item.content}}</text>
+    </view>
+  </view>
+
+  <!-- 常见病害速查 -->
+  <view class="card section-card anchor-section" id="section-3">
+    <view class="section-head">
+      <text class="section-title">常见病害速查</text>
+    </view>
+
+    <view class="load-state" wx:if="{{loading}}">正在加载…</view>
+    <view class="load-state error" wx:elif="{{loadError}}">
+      <text>{{loadError}}</text>
+      <button class="btn-secondary retry-btn" bindtap="retry">重新加载</button>
+    </view>
+
+    <view class="grid" wx:else>
+      <view class="grid-item" wx:for="{{diseases}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+        <image class="grid-image" src="{{item.image}}" mode="aspectFill" wx:if="{{item.image}}"></image>
+        <view class="grid-image placeholder" wx:else>{{item.char}}</view>
+        <text class="grid-name">{{item.name}}</text>
+        <view class="tag tag-light grid-type">{{item.disease_type}}</view>
+      </view>
+    </view>
+  </view>
+</view>

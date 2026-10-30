@@ -1,0 +1,149 @@
+.detail-page {
+  padding-bottom: 120rpx;
+}
+
+.hero {
+  border-radius: 24rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  box-shadow: 0 6rpx 24rpx rgba(27, 58, 34, 0.12);
+}
+.hero-image {
+  width: 100%;
+  height: 480rpx;
+  background: #f0f2f4;
+}
+.hero-image.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 140rpx;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  text-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
+}
+
+.title-card {
+  padding: 28rpx 30rpx;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+}
+.disease-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1b3a22;
+  margin-right: 18rpx;
+}
+.title-card .tag {
+  font-size: 22rpx;
+  padding: 6rpx 22rpx;
+}
+.name-en {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #8a8f99;
+}
+
+.section-label {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1b3a22;
+  margin-bottom: 16rpx;
+}
+.section-content {
+  display: block;
+  font-size: 27rpx;
+  color: #455a64;
+  line-height: 1.75;
+}
+.section-desc {
+  display: block;
+  font-size: 23rpx;
+  color: #b0b6bc;
+  margin-bottom: 16rpx;
+}
+
+.treatment-item {
+  padding: 18rpx 20rpx;
+  background: #f7faf5;
+  border-radius: 14rpx;
+  margin-bottom: 12rpx;
+}
+.treatment-item:last-child {
+  margin-bottom: 0;
+}
+.treatment-tag {
+  align-self: flex-start;
+  font-size: 22rpx;
+  margin-bottom: 10rpx;
+  padding: 4rpx 18rpx;
+}
+.treatment-content {
+  display: block;
+  font-size: 26rpx;
+  color: #455a64;
+  line-height: 1.7;
+}
+
+.gallery-scroll {
+  white-space: nowrap;
+}
+.gallery-row {
+  display: inline-flex;
+}
+.gallery-img {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 16rpx;
+  margin-right: 16rpx;
+  background: #f0f2f4;
+  flex-shrink: 0;
+}
+.gallery-img:last-child {
+  margin-right: 0;
+}
+
+.cta {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  padding: 26rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  z-index: 100;
+  box-shadow: 0 8rpx 24rpx rgba(27, 94, 32, 0.3);
+}
+.foot-note {
+  display: block;
+  text-align: center;
+  font-size: 22rpx;
+  color: #b0b6bc;
+  padding: 24rpx 24rpx 8rpx;
+}
+
+.load-state {
+  padding: 80rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8a8f99;
+}
+.load-state.error {
+  padding-top: 160rpx;
+}
+.load-error-text {
+  display: block;
+  margin-bottom: 24rpx;
+  font-size: 26rpx;
+  color: #8a8f99;
+}
+.retry-btn {
+  display: inline-block;
+  padding: 12rpx 48rpx;
+  font-size: 26rpx;
+}

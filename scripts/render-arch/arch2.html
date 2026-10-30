@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>diag</title>
+<script src="mermaid.min.js"></script>
+<style>
+  body{margin:0;padding:8px;background:#fff}
+</style>
+</head>
+<body>
+<div id="d" class="mermaid">
+flowchart LR
+    IMG["图片 base64"] --> CLS["① 图像分类&lt;br/&gt;MobileNetV3-Large ONNX&lt;br/&gt;224×224 · 输出 top-5 候选"]
+    IMG --> SEV["② 严重度量化&lt;br/&gt;severity.onnx 深度模型（448×448）&lt;br/&gt;回退：颜色形态学 / MobileSAM 面积比"]
+    IMG --> ENV["③ 环境模态&lt;br/&gt;EXIF 拍摄时间 + GPS&lt;br/&gt;→ WorldClim 月均温/降水回查&lt;br/&gt;+ 用户输入（生育期/天气/种植方式）"]
+    CLS --> RULE["④ 知识规则后验修正&lt;br/&gt;WEATHER_RULES + 温度区间&lt;br/&gt;对候选置信度做加减"]
+    ENV --> RULE
+    SEV --> RX["⑤ 结果组装&lt;br/&gt;top1 + 防治方案&lt;br/&gt;treatments 按严重度分级"]
+    RULE --> RX
+    RX --> LOG[("落库 recognitions&lt;br/&gt;candidates + env_metadata 存 JSON")]
+</div>
+<script>
+mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Microsoft YaHei' });
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var svg = document.querySelector('#d svg');
+    var w = 0, h = 0, vb = svg.getAttribute('viewBox');
+    if (vb) { var p = vb.trim().split(/[\s,]+/); w = Math.ceil(+p[2]); h = Math.ceil(+p[3]); }
+    if (!w || w < 20) { var r = svg.getBoundingClientRect(); w = Math.ceil(r.width); h = Math.ceil(r.height); }
+    if (!w || w < 20) { w = 1200; h = 900; }
+    document.title = 'SIZE:' + w + 'x' + h;
+  }, 1000);
+});
+</script>
+</body>
+</html>

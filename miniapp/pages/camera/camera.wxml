@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 相机 / 图片预览区 -->
+  <view class="preview-area {{cameraOpen ? 'camera-active' : ''}}">
+    <camera
+      wx:if="{{cameraOpen}}"
+      device-position="back"
+      flash="off"
+      mode="normal"
+      class="camera-component"
+      bindinitdone="onCameraInit"
+      binderror="onCameraError"
+    ></camera>
+
+    <block wx:elif="{{selectedImage}}">
+      <image class="preview-image" src="{{selectedImage}}" mode="aspectFit" bindtap="previewImage"></image>
+    </block>
+
+    <view wx:else class="preview-placeholder">
+      <text class="placeholder-main">绿豆叶片</text>
+      <text class="placeholder-sub">点击下方按钮拍摄或上传</text>
+    </view>
+  </view>
+
+  <!-- 田间信息（可选，供多模态识别参考） -->
+  <view class="card env-card">
+    <view class="env-title-row">
+      <text class="env-title">田间信息</text>
+    </view>
+    <view class="env-row">
+      <text class="env-label">生育期</text>
+      <picker range="{{growthStages}}" value="{{growthStageIndex}}" bindchange="onGrowthStage">
+        <view class="env-value">{{growthStages[growthStageIndex]}}</view>
+      </picker>
+    </view>
+    <view class="env-row">
+      <text class="env-label">天气</text>
+      <picker range="{{weathers}}" value="{{weatherIndex}}" bindchange="onWeather">
+        <view class="env-value">{{weathers[weatherIndex]}}</view>
+      </picker>
+    </view>
+    <view class="env-row">
+      <text class="env-label">种植方式</text>
+      <picker range="{{plantings}}" value="{{plantingIndex}}" bindchange="onPlanting">
+        <view class="env-value">{{plantings[plantingIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons">
+    <button class="action-btn btn-camera" bindtap="openCamera" wx:if="{{!cameraOpen}}">打开相机</button>
+
+    <view class="camera-controls" wx:if="{{cameraOpen}}">
+      <button class="action-btn btn-capture" bindtap="takePhoto">拍照</button>
+      <button class="action-btn btn-close" bindtap="closeCamera">关闭相机</button>
+    </view>
+
+    <button class="action-btn btn-album" bindtap="chooseAlbum" wx:if="{{!cameraOpen}}">相册上传</button>
+    <button class="action-btn btn-diagnose" bindtap="diagnose" disabled="{{!selectedImage || diagnosing}}">
+      {{diagnosing ? '识别中...' : '开始识别'}}
+    </button>
+  </view>
+</view>

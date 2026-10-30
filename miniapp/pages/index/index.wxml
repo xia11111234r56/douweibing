@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="page-header header">
+    <view>
+      <text class="page-title">豆卫兵</text>
+      <text class="page-desc">拍照识病 · 分级防治</text>
+    </view>
+    <view class="history-btn" bindtap="goToRecords">
+      <text class="history-text">记录</text>
+    </view>
+  </view>
+
+  <!-- 主操作区 -->
+  <view class="camera-section">
+    <view class="camera-btn" bindtap="openCamera" hover-class="camera-btn-hover">
+      <text class="camera-main">拍照识别</text>
+      <text class="camera-sub">拍摄或上传叶片图片</text>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="feature-grid">
+    <view class="feature-card" bindtap="goToDiseaseKnowledge">
+      <view class="feature-badge">
+        <image class="feature-icon" src="/images/feature-disease.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-title">病害百科</text>
+      <text class="feature-desc">10 类常见病害图谱</text>
+    </view>
+    <view class="feature-card" bindtap="goToOverview">
+      <view class="feature-badge">
+        <image class="feature-icon" src="/images/feature-science.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-title">综合科普</text>
+      <text class="feature-desc">症状识别与防治要点</text>
+    </view>
+    <view class="feature-card" bindtap="goToPlantingKnowledge">
+      <view class="feature-badge">
+        <image class="feature-icon" src="/images/feature-plant.png" mode="aspectFit"></image>
+      </view>
+      <text class="feature-title">种植管理</text>
+      <text class="feature-desc">播种水肥收获全流程</text>
+    </view>
+  </view>
+
+  <!-- 常见病害 -->
+  <view class="card" wx:if="{{diseases.length > 0}}">
+    <text class="section-title">常见病害</text>
+    <scroll-view class="disease-scroll" scroll-x>
+      <view class="disease-row">
+        <view class="disease-item" wx:for="{{diseases}}" wx:key="id" bindtap="viewDisease" data-id="{{item.id}}">
+          <image class="disease-image" src="{{item.image}}" mode="aspectFill" wx:if="{{item.image}}"></image>
+          <view class="disease-image placeholder" wx:else>{{item.initial}}</view>
+          <text class="disease-name">{{item.name}}</text>
+          <view class="tag tag-light type-tag">{{item.disease_type}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

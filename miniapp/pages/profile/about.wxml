@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">关于我们</text>
+    <text class="page-desc">项目介绍与团队信息</text>
+  </view>
+
+  <view class="card">
+    <view class="info-item">
+      <text class="info-label">项目名称</text>
+      <text class="info-value">豆卫兵</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">项目定位</text>
+      <text class="info-value">基于深度学习的绿豆病害智能识别与防治建议工具</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">项目编号</text>
+      <text class="info-value">202510022402</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="subtitle">主要功能</text>
+    <text class="content-text">拍照识别绿豆叶片，给出病害类型、严重程度与对应防治方案。</text>
+    <text class="content-text">支持补充生育期、天气、种植方式等田间信息，帮助提高判断的准确性。</text>
+    <text class="content-text">内置病害百科、种植科普与常见问题咨询，方便随时查阅。</text>
+  </view>
+
+  <view class="card">
+    <text class="subtitle">项目团队</text>
+    <view class="info-item">
+      <text class="info-label">所在院校</text>
+      <text class="info-value">北京林业大学信息学院</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">指导教师</text>
+      <text class="info-value">项目指导教师</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">团队成员</text>
+      <text class="info-value">豆卫兵项目团队</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="subtitle">技术栈</text>
+    <view class="tech-tags">
+      <text class="tech-tag">微信小程序</text>
+      <text class="tech-tag">FastAPI</text>
+      <text class="tech-tag">深度学习</text>
+      <text class="tech-tag">ONNX 推理</text>
+      <text class="tech-tag">PyTorch</text>
+      <text class="tech-tag">SQLite</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,136 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-btn {
+  background: #f1f8e9;
+  border-radius: 30rpx;
+  padding: 10rpx 30rpx;
+}
+.history-text {
+  font-size: 26rpx;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+.camera-section {
+  margin: 20rpx 0 36rpx;
+}
+
+.camera-btn {
+  background: linear-gradient(150deg, #2E7D32 0%, #1b5e20 100%);
+  border-radius: 50%;
+  width: 340rpx;
+  height: 340rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12rpx 32rpx rgba(27, 94, 32, 0.35);
+}
+.camera-btn-hover {
+  transform: scale(0.96);
+  opacity: 0.92;
+}
+.camera-main {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 4rpx;
+}
+.camera-sub {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 12rpx;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 26rpx 16rpx;
+  width: 222rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 10rpx rgba(27, 58, 34, 0.05);
+}
+.feature-card:active {
+  opacity: 0.85;
+}
+.feature-badge {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 22rpx;
+  background: #f1f8e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14rpx;
+}
+.feature-icon {
+  width: 46rpx;
+  height: 46rpx;
+}
+.feature-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #263238;
+}
+.feature-desc {
+  font-size: 22rpx;
+  color: #8a8f99;
+  margin-top: 6rpx;
+  text-align: center;
+}
+
+.disease-scroll {
+  white-space: nowrap;
+}
+.disease-row {
+  display: inline-flex;
+}
+.disease-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 24rpx;
+  width: 140rpx;
+}
+.disease-item:last-child {
+  margin-right: 0;
+}
+.disease-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 20rpx;
+  margin-bottom: 12rpx;
+}
+.type-tag {
+  margin-top: 10rpx;
+  padding: 4rpx 16rpx;
+  font-size: 20rpx;
+}
+.disease-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #263238;
+  white-space: normal;
+  width: 140rpx;
+  text-align: center;
+}
+
+.foot-note {
+  font-size: 22rpx;
+  color: #b0b6bc;
+  text-align: center;
+  padding: 20rpx 30rpx 0;
+}

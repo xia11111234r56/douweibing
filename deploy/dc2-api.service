@@ -1,0 +1,21 @@
+# /etc/systemd/system/dc2-api.service（由 provision.sh 软链启用）
+# 单 worker：MobileSAM + 分类模型每 worker 各占一份内存，2核4G 下双 worker 容易 OOM。
+# 并发请求由 FastAPI 的线程池处理，识别是 CPU 密集，单 worker 起步更稳。
+[Unit]
+Description=Dc2 Mung Bean Disease API
+After=network.target
+
+[Service]
+Type=simple
+User=dc2
+Group=dc2
+WorkingDirectory=/opt/dc2/backend
+# 生产密钥全部走 .env，不写死在 service 里
+EnvironmentFile=/opt/dc2/backend/.env
+ExecStart=/opt/dc2/backend/.venv/bin/uvicorn app.main:app \
+    --host 127.0.0.1 --port 8000 --workers 1 --timeout-keep-alive 95
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

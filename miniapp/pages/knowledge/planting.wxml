@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">种植管理</text>
+    <text class="page-desc">绿豆从播种到收获的田间管理要点</text>
+  </view>
+
+  <!-- 分类Tab -->
+  <view class="tabs">
+    <view class="tab {{currentTab === index ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index" bindtap="switchTab" data-index="{{index}}">
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 内容区 -->
+  <view class="content-list">
+    <view class="card content-card" wx:for="{{currentContent}}" wx:key="id">
+      <view class="content-header">
+        <view class="content-num">{{item.num}}</view>
+        <text class="content-title">{{item.title}}</text>
+        <view class="content-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+      </view>
+      <view class="content-item" wx:for="{{item.items}}" wx:for-item="p" wx:key="*this">{{p}}</view>
+    </view>
+
+    <!-- 阶段总览底部延伸阅读 -->
+    <view class="card ext-card" wx:if="{{currentTab === 0}}" bindtap="goEncyclopedia">
+      <text class="ext-title">延伸阅读</text>
+      <view class="ext-link">进入病害百科</view>
+    </view>
+  </view>
+</view>

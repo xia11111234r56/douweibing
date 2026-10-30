@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">意见反馈</text>
+    <text class="page-desc">遇到问题或有想法，欢迎告诉我们</text>
+  </view>
+
+  <view class="card">
+    <textarea class="feedback-input" placeholder="请描述你遇到的问题或建议…" value="{{content}}" bindinput="onContentChange" maxlength="500" />
+    <text class="char-count">{{content.length}}/500</text>
+  </view>
+
+  <view class="card">
+    <text class="subtitle">联系方式（选填）</text>
+    <input class="contact-input" placeholder="手机号或邮箱" value="{{contact}}" bindinput="onContactChange" />
+  </view>
+
+  <text class="foot-note">反馈将保存在本机，供开发者查看。</text>
+
+  <button class="btn-primary submit-btn" bindtap="submitFeedback" disabled="{{submitting || !content}}">
+    {{submitting ? '提交中…' : '提交反馈'}}
+  </button>
+</view>

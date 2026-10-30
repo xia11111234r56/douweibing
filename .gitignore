@@ -1,0 +1,91 @@
+# ===== 密钥与环境（绝不能提交） =====
+.env
+.env.*
+!.env.example
+!deploy/.env.production.example
+backend/.env
+.claude/
+*.pem
+*.key
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# ===== 数据库与运行时产物 =====
+*.db
+*.sqlite3
+backend/uploads/
+backend/data/backfill/
+data/recognitions/
+
+# 模型与训练产物（二进制，不入库；部署模型放 release/ 或服务器）
+*.onnx
+*.pth
+*.pt
+ml/checkpoints/
+ml/experiments/
+ml/runs/
+ml/models/
+
+# ===== 大数据 / 原始素材 =====
+豆类图片/
+train/
+ml/data/
+data/raw/
+data/images/
+data/spatial/worldclim_dl/
+data/spatial/worldclim_clip/
+data/spatial/worldclim_china.csv
+resources/
+
+# ===== 前端构建 =====
+node_modules/
+dist/
+web/node_modules/
+web/dist/
+release/
+*.log
+tools/deepseek-proxy/
+
+# ===== 个人材料 / 竞赛材料（隐私，不入库） =====
+国创赛/
+预推免素材/
+预推免素材.zip
+2026计算机设计大赛参赛总文件夹/
+_tmp_shumo/
+鍥藉垱*/
+问题.docx
+视频语音转文字.docx
+阶段性检查.pdf
+大创申请书.pdf
+大豆灰斑病叶部病斑严重度的分级标准_刘学敏.pdf
+数学建模正式提交文件.zip
+feedback_export.csv
+touxiang.png
+四合一.png
+f4b32ea4c91ea1c88597808da1e317c88a305de2.jpg*
+docs/paper/
+docs/软著/
+docs/讲座笔记*
+
+# ===== 浏览器用户配置（误落入项目，含 History/Cookies/Login Data）=====
+scripts/render-arch/arch4-prof/
+scripts/render-arch/s-prof/
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ===== 调试/本地私有配置 =====
+backend/tests/debug_result.txt
+miniapp/project.private.config.json
+
+# ===== 系统 / 编辑器 =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

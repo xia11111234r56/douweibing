@@ -1,0 +1,85 @@
+.splash {
+  height: 100vh;
+  background: linear-gradient(165deg, #f6fbf3 0%, #eaf3e4 55%, #dcead4 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-wrap {
+  width: 220rpx;
+  height: 220rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 围着头像旋转的加载圈 */
+.logo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 6rpx solid rgba(46, 125, 50, 0.16);
+  border-top-color: #2E7D32;
+  border-right-color: rgba(46, 125, 50, 0.42);
+  animation: ring-spin 1s linear infinite;
+}
+
+.logo-avatar {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #43a047 0%, #1b5e20 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6rpx solid #ffffff;
+  box-shadow: 0 12rpx 32rpx rgba(27, 94, 32, 0.35);
+}
+
+.logo-char {
+  font-size: 76rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.app-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1b3a22;
+  letter-spacing: 6rpx;
+  margin-top: 34rpx;
+}
+
+.app-slogan {
+  font-size: 26rpx;
+  color: #7d8a7d;
+  letter-spacing: 3rpx;
+  margin-top: 12rpx;
+}
+
+.splash-note {
+  position: absolute;
+  bottom: 90rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: #9aa0a6;
+  padding: 0 70rpx;
+  line-height: 1.6;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

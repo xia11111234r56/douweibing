@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>diag</title>
+<script src="mermaid.min.js"></script>
+<style>
+  body{margin:0;padding:8px;background:#fff}
+</style>
+</head>
+<body>
+<div id="d" class="mermaid">
+flowchart TB
+    B["浏览器 / 微信小程序"] -->|HTTPS 443| NG["Nginx&lt;br/&gt;api.douweibing.cn（备案后换正式证书）"]
+    NG -->|"/api/ 反代 + /docs /redoc /openapi.json"| API["uvicorn :8000&lt;br/&gt;FastAPI 单 worker + ONNX Runtime (CPU)"]
+    NG -->|"/ 静态资源 try_files → index.html"| SPA["/opt/dc2/web&lt;br/&gt;Vue3 构建产物 (dist)"]
+    API --> MDB[("MariaDB :3306 / dc2 库")]
+    API --> M["backend/models/&lt;br/&gt;classifier.onnx · severity.onnx"]
+    API --> SP["backend/data/spatial/&lt;br/&gt;worldclim_china.csv · geojson/"]
+</div>
+<script>
+mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Microsoft YaHei' });
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var svg = document.querySelector('#d svg');
+    var w = 0, h = 0, vb = svg.getAttribute('viewBox');
+    if (vb) { var p = vb.trim().split(/[\s,]+/); w = Math.ceil(+p[2]); h = Math.ceil(+p[3]); }
+    if (!w || w < 20) { var r = svg.getBoundingClientRect(); w = Math.ceil(r.width); h = Math.ceil(r.height); }
+    if (!w || w < 20) { w = 1200; h = 900; }
+    document.title = 'SIZE:' + w + 'x' + h;
+  }, 1000);
+});
+</script>
+</body>
+</html>

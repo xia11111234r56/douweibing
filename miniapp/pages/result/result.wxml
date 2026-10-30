@@ -1,0 +1,98 @@
+<view class="container" wx:if="{{record}}">
+  <!-- 图片 -->
+  <view class="image-preview" bindtap="previewImage">
+    <image class="preview-image" src="{{record.image}}" mode="aspectFit" wx:if="{{record.image}}"></image>
+    <view class="preview-image placeholder" wx:else>叶片</view>
+  </view>
+
+  <!-- 诊断结论 -->
+  <view class="card">
+    <text class="section-title">识别结果</text>
+
+    <view class="diag-top">
+      <view class="diag-left">
+        <text class="disease-name" bindtap="goDiseaseDetail" hover-class="link-hover">{{record.diseaseName}}</text>
+        <view class="tag {{severityTagClass}} sev-tag">{{record.severity}}</view>
+      </view>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="info-row">
+      <text class="info-label">病害类型</text>
+      <text class="info-value">{{record.diseaseType || '—'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">识别时间</text>
+      <text class="info-value">{{record.time}}</text>
+    </view>
+
+    <block wx:if="{{record.severityText}}">
+      <view class="divider"></view>
+      <text class="info-value severity-desc">{{record.severityText}}</text>
+    </block>
+  </view>
+
+  <!-- 防治方案 -->
+  <view class="card treatment-card" wx:if="{{treatments.length > 0}}">
+    <text class="section-title">防治方案</text>
+    <view class="treatment-item" wx:for="{{treatments}}" wx:key="index">
+      <view class="tag tag-light treatment-tag">{{item.method_type}}</view>
+      <text class="treatment-content">{{item.content}}</text>
+    </view>
+  </view>
+
+  <!-- 纠错反馈（识别记录有 recognitionId 且未提交过才显示） -->
+  <view class="card feedback-card" wx:if="{{feedback.canShow}}">
+    <text class="section-title">识别纠错</text>
+    <text class="feedback-desc">识别结果不准确？点「纠错」修正病害或严重度，让识别越用越准。</text>
+
+    <view class="feedback-submitted" wx:if="{{feedback.submitted}}">{{feedback.submittedText || '已提交纠错 ✓'}}</view>
+
+    <block wx:else>
+      <button class="btn-warning feedback-btn" bindtap="startCorrect" disabled="{{feedback.submitting}}">纠错</button>
+
+      <block wx:if="{{feedback.wrongMode}}">
+        <text class="fb-hint">已按识别结果预选，只改不对的项即可。</text>
+        <picker
+          mode="selector"
+          range="{{feedback.diseaseNames}}"
+          value="{{feedback.diseaseIndex}}"
+          bindchange="onPickDisease"
+        >
+          <view class="picker-view {{feedback.diseaseIndex < 0 ? 'picker-empty' : ''}}">
+            {{feedback.diseaseIndex >= 0 ? feedback.diseaseNames[feedback.diseaseIndex] : '选择正确病害'}}
+          </view>
+        </picker>
+
+        <!-- 健康 = 无病害，无需选择严重度 -->
+        <block wx:if="{{feedback.diseaseIndex >= 0 && !feedback.isHealthy}}">
+          <view class="sev-label">纠正严重度</view>
+          <view class="sev-pills">
+            <view
+              class="sev-pill {{feedback.severityIndex === index ? 'sev-pill-active' : ''}}"
+              wx:for="{{feedback.severities}}"
+              wx:key="*this"
+              bindtap="onPickSeverity"
+              data-index="{{index}}"
+            >{{item}}</view>
+          </view>
+        </block>
+
+        <button
+          class="btn-primary feedback-submit"
+          bindtap="submitCorrect"
+          disabled="{{!feedback.canSubmit || feedback.submitting}}"
+        >提交纠错</button>
+      </block>
+    </block>
+  </view>
+
+  <view class="foot-note">结果仅供参考，重要决策请咨询当地农技人员。</view>
+
+  <!-- 操作 -->
+  <view class="action-buttons">
+    <button class="btn-secondary action-btn" bindtap="reDiagnose">重新识别</button>
+    <button class="btn-primary action-btn" bindtap="backHome">返回首页</button>
+  </view>
+</view>

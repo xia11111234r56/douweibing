@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>diag</title>
+<script src="mermaid.min.js"></script>
+<style>
+  body{margin:0;padding:8px;background:#fff}
+</style>
+</head>
+<body>
+<div id="d" class="mermaid">
+erDiagram
+    users ||--o{ operation_logs : "记录操作"
+    users ||--o{ recognitions : "发起识别"
+    hosts ||--o{ diseases : "寄主作物"
+    diseases ||--o{ treatments : "按严重度分级防治"
+    diseases ||--o{ disease_env_rules : "环境后验规则"
+    diseases }o--o{ symptoms : "表现为（多对多）"
+    diseases }o--o{ pesticides : "可用药剂（多对多）"
+    graph_nodes ||--o{ graph_edges : "源节点"
+    graph_nodes ||--o{ graph_edges : "目标节点"
+    diseases ||--o{ recognitions : "识别命中"
+</div>
+<script>
+mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Microsoft YaHei' });
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var svg = document.querySelector('#d svg');
+    var w = 0, h = 0, vb = svg.getAttribute('viewBox');
+    if (vb) { var p = vb.trim().split(/[\s,]+/); w = Math.ceil(+p[2]); h = Math.ceil(+p[3]); }
+    if (!w || w < 20) { var r = svg.getBoundingClientRect(); w = Math.ceil(r.width); h = Math.ceil(r.height); }
+    if (!w || w < 20) { w = 1200; h = 900; }
+    document.title = 'SIZE:' + w + 'x' + h;
+  }, 1000);
+});
+</script>
+</body>
+</html>

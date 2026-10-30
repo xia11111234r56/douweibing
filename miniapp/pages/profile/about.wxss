@@ -1,0 +1,58 @@
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+.subtitle {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1b3a22;
+  margin-bottom: 18rpx;
+}
+.info-item {
+  display: flex;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #f0f2f4;
+}
+.info-item:last-child {
+  border-bottom: none;
+  padding-bottom: 2rpx;
+}
+.info-label {
+  font-size: 27rpx;
+  color: #8a8f99;
+  width: 160rpx;
+  flex-shrink: 0;
+}
+.info-value {
+  font-size: 27rpx;
+  color: #263238;
+  flex: 1;
+  line-height: 1.6;
+}
+.content-text {
+  display: block;
+  font-size: 26rpx;
+  color: #455a64;
+  line-height: 1.75;
+  margin-bottom: 14rpx;
+}
+.content-text:last-child {
+  margin-bottom: 0;
+}
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tech-tag {
+  padding: 10rpx 26rpx;
+  background: #E8F5E9;
+  color: #2E7D32;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
